@@ -35,8 +35,8 @@ With over 20+ years of experience as a Software Testing Engineer, Network & Appl
 
 | # | Conference / Event | Location      | Session / Role                 | Format   | Year | Link |
 |---|--------------------|---------------|--------------------------------|----------|------|------|
-| 1 | Vulncon            | Bangalore, IN | Solder & Spark Badge Village   | Village  | 2025 | Link |
-| 2 | SeaSides           | Goa, IN       | Advanced HW + BLE Exploitation | Workshop | 2025 | Link |
+| 1 | Vulncon            | Bangalore, IN | Solder & Spark Badge Village   | Village  | 2025 | [Link](https://vulncon.in/events/vulncon2025/village/solder-and-spark-badge) |
+| 2 | SeaSides           | Goa, IN       | Advanced HW + BLE Exploitation | Workshop | 2025 | [Link](https://seasides.net/mastering-iot-exploitation-advanced-hardware-and-bluetooth-security) |
 | 3 | BSides Dehradun    | Dehradun, IN  | BGA Dechipping Village         | Village  | 2024 |      |
 | 4 | Defcon Delhi       | Delhi, IN     |  Microchip Makeover Village    | Village  | 2024 |      |
 | 5 | BSides Dehradun    | Dehradun, IN  | BGA Dechipping Village         | Village  | 2024 |      |
