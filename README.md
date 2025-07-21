@@ -41,7 +41,7 @@ With over 20+ years of experience as a Software Testing Engineer, Network & Appl
 | 4 | Defcon Delhi       | Delhi, IN     |  Microchip Makeover Village    | Village  | 2024 |      |
 | 5 | BSides Dehradun    | Dehradun, IN  | BGA Dechipping Village         | Village  | 2024 |      |
 | 6 | Vulncon            | Bangalore, IN | Microchip Makeover Village     | Village  | 2024 |      |
-| 7 | NULL Community     | Bangalore, IN | Microprobing with ICEBite      | Talk     | 2024 |      |
+| 7 | NULL Community     | Bangalore, IN | Microprobing with ICEBite      | Talk     | 2024 |[Link](https://null.community/event_sessions/4278-microprobing-with-icebite)|
 ------
 <h3 align="left">Languages and Tools:</h3>
 <table>
