@@ -62,7 +62,7 @@ With over 20+ years of experience as a Software Testing Engineer, Network & Appl
         <td><img height="400" src="https://skillicons.dev/icons?i=vscode,eclipse,visualstudio"/></td>
     </tr>
     <tr>
-        <td style="font-weight: bold; padding-right: 10px; vertical-align: center; border: none;">Other Tools:</td>
+        <td style="font-weight: bold; padding-right: 10px; vertical-align: center; border: none;">PCBA Designing Tools:</td>
         <td><img height="40" src="https://icons.iconarchive.com/icons/papirus-team/papirus-apps/128/kicad-icon.png"/></td>
     </tr>
     <tr>
