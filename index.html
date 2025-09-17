@@ -1,32 +1,78 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GIF Background Example</title>
-  <style>
-    body {
-      background-image: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2RidDlzd2lpOHExZ29meXc3cHc0ejVkM3dlNHprdXBybXMzMHBhdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cHcdcVJ0hppOL0Lamo/giphy.gif');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
-      height: 100vh;
-      margin: 0;
-      padding: 0;
-    }
-  </style>
-</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-.city {
-  color: white;
-  border: 2px solid black;
-  margin: 20px;
-  padding: 5px;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+  font-size: 17px;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+
+#myBtn {
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+#myBtn:hover {
+  background: #ddd;
+  color: black;
 }
 </style>
-<div class="city">
-<h2>WEBSITE</h2>
-<p>Coming soon.</p>
-</div> 
-</html>   
+</head>
+<body>
 
+<video autoplay muted loop id="myVideo">
+  <source src="https://cdn.pixabay.com/video/2024/08/30/228947_large.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
 
+<div class="content">
+  <h1>WEBSITE</h1>
+  <p>Coming soon</p>
+  <button id="myBtn" onclick="myFunction()">Pause</button>
+</div>
+
+<script>
+var video = document.getElementById("myVideo");
+var btn = document.getElementById("myBtn");
+
+function myFunction() {
+  if (video.paused) {
+    video.play();
+    btn.innerHTML = "Pause";
+  } else {
+    video.pause();
+    btn.innerHTML = "Play";
+  }
+}
+</script>
+
+</body>
+</html>
