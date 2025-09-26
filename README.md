@@ -8,7 +8,7 @@ You can click the Preview link to take a look at your changes.
 ### Hello 🌎, I'm Karthik Ekanthan
 
 With over 20+ years of experience as a Software Testing Engineer, Network & Application Pentester And PCB Design Expert.  I'm on a mission to create technology solutions that connect the digital world with real life! I have the power to develop PCBA Badges. I'm passionate about developing secured smart products for daily life stile Let's make technology shine! 🚀
-
+https://github.com/kekanath/kekanathan/blob/main/karthik.jpg
 
   - 🔭 I’m currently working as a Network and Application Pentester 
   - 👋 Hi, I’m @kekanath
