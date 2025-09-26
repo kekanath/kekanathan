@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karthik Ekanthan - Portfolio</title>
 <style>
 * {
   box-sizing: border-box;
@@ -9,8 +11,9 @@
 
 body {
   margin: 0;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   font-size: 17px;
+  color: #f1f1f1;
 }
 
 #myVideo {
@@ -19,15 +22,45 @@ body {
   bottom: 0;
   min-width: 100%; 
   min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
 .content {
-  position: fixed;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  color: #f1f1f1;
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
   width: 100%;
-  padding: 20px;
+  padding: 30px;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+h1, h3 {
+  margin-top: 0;
+  color: #ffd700;
+}
+
+a {
+  color: #4db8ff;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  background: rgba(255, 255, 255, 0.1);
+}
+table, th, td {
+  border: 1px solid #999;
+  padding: 8px;
+  text-align: center;
+}
+th { background: rgba(0,0,0,0.5); }
+
+.icons img {
+  margin: 5px;
 }
 
 #myBtn {
@@ -38,8 +71,8 @@ body {
   background: #000;
   color: #fff;
   cursor: pointer;
+  margin-top: 20px;
 }
-
 #myBtn:hover {
   background: #ddd;
   color: black;
@@ -54,9 +87,82 @@ body {
 </video>
 
 <div class="content">
-  <h1>WEBSITE</h1>
-  <p>Coming soon</p>
+  <h1>Hello 🌎, I'm Karthik Ekanthan</h1>
+  <p>Software Testing Engineer • Pentester • PCB Design Expert</p>
+
+  <h3>About Me</h3>
+  <p>
+    With over 20+ years of experience as a Software Testing Engineer, Network & Application Pentester 
+    and PCB Design Expert, I'm on a mission to create technology solutions that connect the digital 
+    world with real life! I design and develop PCBA badges and secure smart products for daily lifestyle. 🚀
+  </p>
+
+  <ul>
+    <li>🔭 Currently working as a <b>Network and Application Pentester</b></li>
+    <li>👋 Hi, I’m <b>@kekanath</b></li>
+    <li>👀 Interested in IoT automation</li>
+    <li>🌱 Currently learning Arduino</li>
+    <li>💞️ Open to collaborate on Python programs and Arduino</li>
+    <li><img src="https://github.com/user-attachments/assets/77d3b996-63be-4292-87ce-071e0b7a05e7" width="200"></li>
+    <li>💼 Open for freelance PCB design jobs</li>
+    <li>📫 Reach me at: <a href="mailto:smilekarthikreddy@gmail.com">smilekarthikreddy@gmail.com</a></li>
+  </ul>
+
+  <h3>Connect with me</h3>
+  <p>
+    <a href="https://x.com/Sold3rMystic" target="_blank">
+      <img src="https://skillicons.dev/icons?i=twitter" width="40" alt="Twitter">
+    </a>
+    <a href="https://www.linkedin.com/in/karthik-e-7915304b/" target="_blank">
+      <img src="https://skillicons.dev/icons?i=linkedin" width="40" alt="LinkedIn">
+    </a>
+  </p>
+
+  <h3>Activity</h3>
+  <table>
+    <tr>
+      <th>#</th><th>Conference / Event</th><th>Location</th><th>Session / Role</th><th>Format</th><th>Year</th><th>Link</th>
+    </tr>
+    <tr>
+      <td>1</td><td>Vulncon</td><td>Bangalore, IN</td><td>Solder & Spark Badge Village</td><td>Village</td><td>2025</td>
+      <td><a href="https://vulncon.in/events/vulncon2025/village/solder-and-spark-badge">Link</a></td>
+    </tr>
+    <tr>
+      <td>2</td><td>SeaSides</td><td>Goa, IN</td><td>Advanced HW + BLE Exploitation</td><td>Workshop</td><td>2025</td>
+      <td><a href="https://seasides.net/mastering-iot-exploitation-advanced-hardware-and-bluetooth-security">Link</a></td>
+    </tr>
+    <tr>
+      <td>3</td><td>BSides Dehradun</td><td>Dehradun, IN</td><td>BGA Dechipping Village</td><td>Village</td><td>2024</td><td></td>
+    </tr>
+    <tr>
+      <td>4</td><td>Defcon Delhi</td><td>Delhi, IN</td><td>Microchip Makeover Village</td><td>Village</td><td>2024</td><td></td>
+    </tr>
+    <tr>
+      <td>5</td><td>BSides Dehradun</td><td>Dehradun, IN</td><td>BGA Dechipping Village</td><td>Village</td><td>2024</td><td></td>
+    </tr>
+    <tr>
+      <td>6</td><td>Vulncon</td><td>Bangalore, IN</td><td>Microchip Makeover Village</td><td>Village</td><td>2024</td><td></td>
+    </tr>
+    <tr>
+      <td>7</td><td>NULL Community</td><td>Bangalore, IN</td><td>Microprobing with ICEBite</td><td>Talk</td><td>2024</td>
+      <td><a href="https://null.community/event_sessions/4278-microprobing-with-icebite">Link</a></td>
+    </tr>
+  </table>
+
+  <h3>Languages and Tools</h3>
+  <table>
+    <tr><td><b>Languages</b></td><td><img src="https://skillicons.dev/icons?i=python" height="40"></td></tr>
+    <tr><td><b>Automated Test</b></td><td><img src="https://skillicons.dev/icons?i=selenium" height="40"></td></tr>
+    <tr><td><b>Version Control</b></td><td><img src="https://skillicons.dev/icons?i=git,github" height="40"></td></tr>
+    <tr><td><b>IDEs</b></td><td><img src="https://skillicons.dev/icons?i=vscode,eclipse,visualstudio" height="40"></td></tr>
+    <tr><td><b>PCBA Design</b></td><td><img src="https://icons.iconarchive.com/icons/papirus-team/papirus-apps/128/kicad-icon.png" height="40"></td></tr>
+    <tr><td><b>Operating Systems</b></td><td><img src="https://skillicons.dev/icons?i=windows,ubuntu" height="40"></td></tr>
+  </table>
+
   <button id="myBtn" onclick="myFunction()">Pause</button>
+  <p>Updated: 21/07/2025 | Coming Soon: 
+    <a href="https://kekanath.github.io/kekanathan/">Portfolio Website</a>
+  </p>
 </div>
 
 <script>
