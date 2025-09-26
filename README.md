@@ -28,6 +28,8 @@ With over 20+ years of experience as a Software Testing Engineer, Network & Appl
   <a href="https://www.linkedin.com/in/karthik-e-7915304b/" target="_blank">
     <img src="https://skillicons.dev/icons?i=linkedin" style="width: 40px; height: 40px; object-fit: contain;" alt="LinkedIn" />
   </a>
+  <a href="mailto:smilekarthikreddy@gmail.com" target="_blank"> <img src="https://skillicons.dev/icons?i=gmail" width="40" alt="Gmail">
+  </a>
 </p>
 
 ------
