@@ -80,7 +80,17 @@ th { background: rgba(0,0,0,0.5); }
 </style>
 </head>
 <body>
-
+<script>
+fetch("https://your-backend.onrender.com/visitor", {
+  method: "POST",
+  headers: {"Content-Type": "application/json"},
+  body: JSON.stringify({
+    url: window.location.href,
+    userAgent: navigator.userAgent,
+    time: new Date().toISOString()
+  })
+});
+</script>
 <video autoplay muted loop id="myVideo">
   <source src="https://cdn.pixabay.com/video/2024/08/30/228947_large.mp4" type="video/mp4">
   Your browser does not support HTML5 video.
