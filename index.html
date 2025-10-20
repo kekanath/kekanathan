@@ -141,6 +141,50 @@ fetch("https://your-backend.onrender.com/visitor", {
   <img src="https://skillicons.dev/icons?i=github" width="60" alt="Github">
 </a>
 </p>
+<!DOCTYPE html>
+<html>
+<body>
+<!--- Video Code start --->
+
+<div id="popup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);justify-content:center;align-items:center;">
+  <video id="vid" controls style="max-width:50%;border-radius:10px;">
+    <source src="https://github.com/kekanath/kekanathan/raw/main/Appsec_2025.mp4" type="video/mp4">
+  </video>
+</div>
+
+<style>
+  #videoBtn {
+    background: transparent;
+    border: none;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    animation: rgbShift 3s infinite alternate;
+  }
+
+  @keyframes rgbShift {
+    0%   { background: rgba(255, 0, 150, 0.4); }
+    33%  { background: rgba(0, 200, 255, 0.4); }
+    66%  { background: rgba(0, 255, 100, 0.4); }
+    100% { background: rgba(255, 255, 0, 0.4); }
+  }
+</style>
+
+<script>
+function showVideo() {
+  const p = document.getElementById("popup");
+  const v = document.getElementById("vid");
+  p.style.display = "flex";
+  v.play();
+  p.onclick = () => { p.style.display = "none"; v.pause(); v.currentTime = 0; };
+}
+</script>
+<!--- Video Code end --->
+</body>
+</html>
 
   <h3>Activity</h3>
   <table>
@@ -148,31 +192,35 @@ fetch("https://your-backend.onrender.com/visitor", {
       <th>#</th><th>Conference / Event</th><th>Location</th><th>Session / Role</th><th>Format</th><th>Year</th><th>Link</th>
     </tr>
     <tr>
-      <td>1</td><td>Craccon</td><td>New Delhi, IN</td><td>Hardware CTF</td><td>CTF</td><td>2025</td>
+      <td>1</td><td>Appsec</td><td>Bangalore, IN</td><td>Soldering Village</td><td>Village</td><td>2025</td>
+      <td><a href="https://bangalore.appsecdays.org/">Link</a> , <button id="videoBtn" onclick="showVideo()">Video</button>
+    </tr>
+    <tr>
+      <td>2</td><td>Craccon</td><td>New Delhi, IN</td><td>Hardware CTF</td><td>CTF</td><td>2025</td>
       <td><a href="https://www.crac-learning.com/craccon25">Link</a></td>
     </tr>
     <tr>
-      <td>2</td><td>Vulncon</td><td>Bangalore, IN</td><td>Solder & Spark Badge Village</td><td>Village</td><td>2025</td>
+      <td>3</td><td>Vulncon</td><td>Bangalore, IN</td><td>Solder & Spark Badge Village</td><td>Village</td><td>2025</td>
       <td><a href="https://vulncon.in/events/vulncon2025/village/solder-and-spark-badge">Link</a></td>
     </tr>
 	<tr>
-      <td>3</td><td>SeaSides</td><td>Goa, IN</td><td>Advanced HW + BLE Exploitation</td><td>Workshop</td><td>2025</td>
+      <td>4</td><td>SeaSides</td><td>Goa, IN</td><td>Advanced HW + BLE Exploitation</td><td>Workshop</td><td>2025</td>
       <td><a href="https://seasides.net/mastering-iot-exploitation-advanced-hardware-and-bluetooth-security">Link</a></td>
     </tr>
     <tr>
-      <td>4</td><td>BSides Dehradun</td><td>Dehradun, IN</td><td>BGA Dechipping Village</td><td>Village</td><td>2024</td><td></td>
+      <td>5</td><td>BSides Dehradun</td><td>Dehradun, IN</td><td>BGA Dechipping Village</td><td>Village</td><td>2024</td><td></td>
     </tr>
     <tr>
-      <td>5</td><td>Defcon Delhi</td><td>Delhi, IN</td><td>Microchip Makeover Village</td><td>Village</td><td>2024</td><td></td>
+      <td>6</td><td>Defcon Delhi</td><td>Delhi, IN</td><td>Microchip Makeover Village</td><td>Village</td><td>2024</td><td></td>
     </tr>
     <tr>
-      <td>6</td><td>BSides Dehradun</td><td>Dehradun, IN</td><td>BGA Dechipping Village</td><td>Village</td><td>2024</td><td></td>
+      <td>7</td><td>BSides Dehradun</td><td>Dehradun, IN</td><td>BGA Dechipping Village</td><td>Village</td><td>2024</td><td></td>
     </tr>
     <tr>
-      <td>7</td><td>Vulncon</td><td>Bangalore, IN</td><td>Microchip Makeover Village</td><td>Village</td><td>2024</td><td></td>
+      <td>8</td><td>Vulncon</td><td>Bangalore, IN</td><td>Microchip Makeover Village</td><td>Village</td><td>2024</td><td></td>
     </tr>
     <tr>
-      <td>8</td><td>NULL Community</td><td>Bangalore, IN</td><td>Microprobing with ICEBite</td><td>Talk</td><td>2024</td>
+      <td>9</td><td>NULL Community</td><td>Bangalore, IN</td><td>Microprobing with ICEBite</td><td>Talk</td><td>2024</td>
       <td><a href="https://null.community/event_sessions/4278-microprobing-with-icebite">Link</a></td>
     </tr>
   </table>
