@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karthik Ekanthan - Portfolio (Redesign)</title>
+<style>
+:root{
+  --accent:#ffd700;
+  --muted: rgba(255,255,255,0.85);
+  --glass: rgba(0,0,0,0.6);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter, system-ui, Arial, sans-serif;background:#000;color:var(--muted);}
+/* Background video */
+#myVideo{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;filter:brightness(0.5);}
+/* overlay */n
+.background-overlay{position:fixed;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.6));z-index:-1}
+/* Layout */
+.container{display:grid;grid-template-columns:260px 1fr;min-height:100vh;gap:24px;padding:28px;align-items:start}
+.sidebar{background: linear-gradient(180deg, rgba(0,0,0,0.7), rgba(0,0,0,0.5));padding:20px;border-radius:14px;backdrop-filter: blur(6px);box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+.logo{display:flex;align-items:center;gap:12px}
+.logo img{width:48px;height:48px;border-radius:50%}
+.nav{margin-top:18px;display:flex;flex-direction:column;gap:8px}
+.nav a{color:var(--muted);text-decoration:none;padding:10px;border-radius:8px;display:block}
+.nav a:hover{background:rgba(255,255,255,0.04);color:var(--accent);transform:translateX(6px)}
+/* Main content */
+.main{padding:24px;background:var(--glass);border-radius:14px;max-height:calc(100vh - 56px);overflow:auto}
+.header{display:flex;gap:20px;align-items:center}
+.header .intro{flex:1}
+.header h1{margin:0;color:var(--accent);font-size:28px}
+.profile-pic{width:120px;height:120px;border-radius:12px;object-fit:cover;border:3px solid var(--accent)}
+.badge{display:inline-block;background:rgba(255,255,255,0.04);padding:6px 10px;border-radius:999px;margin-top:10px}
+/* utility */
+.section{margin-top:22px}
+h2{color:var(--accent);margin:8px 0}
+p{line-height:1.5}
+.table-responsive{overflow:auto;border-radius:8px}
+table{width:100%;border-collapse:collapse;background:rgba(255,255,255,0.02)}
+table th, table td{padding:10px;border:1px solid rgba(255,255,255,0.06);text-align:left}
+.icons img{margin:6px}
+/* Buttons */
+.btn{display:inline-block;padding:8px 14px;border-radius:10px;border:none;background:transparent;color:var(--muted);cursor:pointer}
+.btn.primary{background:var(--accent);color:#000;font-weight:600}
+/* Cards (projects/blog/gallery) */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.card{background:rgba(255,255,255,0.03);padding:14px;border-radius:12px;overflow:hidden;transition:transform .28s, box-shadow .28s}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.6)}
+.card img{width:100%;height:140px;object-fit:cover;border-radius:8px}
+.card h3{margin:8px 0 4px;color:var(--accent)}
+.card p{margin:0}
+/* gallery modal */
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.85);z-index:9999}
+.modal img{max-width:90%;max-height:80%;border-radius:8px}
+.modal .close{position:absolute;top:18px;right:18px;background:transparent;border:2px solid #fff;padding:6px;border-radius:8px;cursor:pointer}
+/* small screens */
+@media (max-width:880px){.container{grid-template-columns:1fr;padding:16px}.sidebar{order:2}.main{order:1}}
+/* subtle entrance animations */
+.fade-in{animation:fadeIn .7s ease both}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+/* floating globe animation */
+.globe{width:80px;height:80px}
+.globe-wrap{display:inline-block;vertical-align:middle;animation:float 6s ease-in-out infinite}
+@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-8px) rotate(-4deg)}100%{transform:translateY(0)}}
+/* accessible focus */
+a:focus, button:focus{outline:2px solid rgba(255,255,255,0.12);outline-offset:3px}
+</style>
+</head>
+<body>
+<!-- visitor tracking (kept exact) -->
+<script>
+fetch("https://your-backend.onrender.com/visitor", {
+  method: "POST",
+  headers: {"Content-Type": "application/json"},
+  body: JSON.stringify({
+    url: window.location.href,
+    userAgent: navigator.userAgent,
+    time: new Date().toISOString()
+  })
+});
+</script>
+<!-- background video (kept src) -->
+<video autoplay muted loop id="myVideo">
+  <source src="https://cdn.pixabay.com/video/2024/08/30/228947_large.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+<div class="background-overlay"></div>
+
+<div class="container">
+  <aside class="sidebar fade-in">
+    <div class="logo">
+      <img src="https://raw.githubusercontent.com/kekanath/kekanathan/main/karthik.jpg" alt="Karthik">
+      <div>
+        <strong style="color:var(--accent)">Karthik Ekanthan</strong>
+        <div style="font-size:13px;color:rgba(255,255,255,0.7)">Network & App Pentester</div>
+      </div>
+    </div>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="#home" data-nav>Home</a>
+      <a href="#projects" data-nav>Projects</a>
+      <a href="#galleries" data-nav>Galleries</a>
+      <a href="#blog" data-nav>Blog</a>
+      <a href="#activity" data-nav>Activity</a>
+      <a href="#tools" data-nav>Languages & Tools</a>
+      <a href="#connect" data-nav>Connect</a>
+    </nav>
+
+    <div style="margin-top:18px">
+      <div class="badge">Lead Testing Engineer @ Crestron</div>
+      <div style="height:10px"></div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.6)">Updated: 21/07/2025</div>
+    </div>
+  </aside>
+
+  <main class="main fade-in" id="main">
+    <!-- HOME: original content preserved -->
+    <section id="home">
+      <div class="header">
+        <div class="intro">
+          <h1>Hello <span class="globe-wrap"><img class="globe" src="https://raw.githubusercontent.com/kekanath/kekanathan/main/globle_1.gif" alt="globe"></span>, I'm Karthik Ekanthan</h1>
+          <p>Network & Application Pentester And PCB Design Expert</p>
+          <p> Core Team Member of <a href="https://www.iotsrg.org/team" target="_blank"><u>IoTSRG</u></a></p>
+          <div style="margin-top:10px">
+            <img src="https://raw.githubusercontent.com/kekanath/kekanathan/main/karthik.jpg" alt="Karthik Ekanthan" class="profile-pic">
+          </div>
+        </div>
+        <div style="width:220px;text-align:center">
+          <!-- kept original animated image and high five GIF -->
+          <img src="https://raw.githubusercontent.com/kekanath/kekanathan/main/ChatGPT%20Image%20Sep%2026%2C%202025%2C%2011_54_51%20PM.png" style="width:100%;border-radius:12px;border:3px solid var(--accent);margin-bottom:10px">
+          <img src="https://raw.githubusercontent.com/kekanath/kekanathan/main/High_five.gif" width="160" alt="high five">
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>About Me</h2>
+        <p>With over 20+ years of experience as a Software Testing Engineer, Network & Application Pentester 
+    and PCB Design Expert, I'm on a mission to create technology solutions that connect the digital 
+    world with real life! I design and develop PCBA badges and secure smart products for daily lifestyles. 🚀</p>
+
+        <ul>
+    <li>🔭 <b> Currently working as a Network and Application Pentester @ <a href="https://www.crestron.com/" target="_blank"><u>Crestron</u></a>
+</b></li>
+    <li>👋 Hi, I’m <b>@kekanath</b></li>
+    <li>👀 Interested in IoT <b>automation</b></li>
+    <li>🌱 Currently learning <b>Arduino</b></li>
+    <li>💞️ Open to collaborate on <b>Python programs and Arduino projects</b></li>
+    <li >🏫 Available for freelance PCB design — <b>exclusively for college student projects</b></li>
+    <li hidden>📫 Reach me at: <a href="mailto:smilekarthikreddy@gmail.com">smilekarthikreddy@gmail.com</a></li>
+  </ul>
+      </div>
+
+      <!-- Original video popup preserved -->
+      <div id="popup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);justify-content:center;align-items:center;z-index:1000">
+        <video id="vid" controls style="max-width:80%;border-radius:10px;">
+          <source src="https://github.com/kekanath/kekanathan/raw/main/Appsec_2025.mp4" type="video/mp4">
+        </video>
+        <button class="close" onclick="closeVideo()" style="position:absolute;top:18px;right:18px;background:transparent;border:2px solid #fff;padding:6px;border-radius:8px;color:#fff">Close</button>
+      </div>
+
+      <div class="section">
+        <h2 id="activity">Activity</h2>
+        <div class="table-responsive">
+          <!-- original table preserved (kept content identical) -->
+          <table>
+    <tr>
+      <th>#</th><th>Conference / Event</th><th>Location</th><th>Session / Role</th><th>Format</th><th>Year</th><th>Link</th>
+    </tr>
+    <tr>
+      <td>1</td><td>Appsec</td><td>Bangalore, IN</td><td>Soldering Village</td><td>Village</td><td>2025</td>
+      <td><a href="https://bangalore.appsecdays.org/">Link</a> , <button id="videoBtn" class="btn" onclick="showVideo()">Video</button>
+    </tr>
+    <tr>
+      <td>2</td><td>Craccon</td><td>New Delhi, IN</td><td>Hardware CTF</td><td>CTF</td><td>2025</td>
+      <td><a href="https://www.crac-learning.com/craccon25">Link</a></td>
+    </tr>
+    <tr>
+      <td>3</td><td>Vulncon</td><td>Bangalore, IN</td><td>Solder & Spark Badge Village</td><td>Village</td><td>2025</td>
+      <td><a href="https://vulncon.in/events/vulncon2025/village/solder-and-spark-badge">Link</a></td>
+    </tr>
+    <tr>
+      <td>4</td><td>SeaSides</td><td>Goa, IN</td><td>Advanced HW + BLE Exploitation</td><td>Workshop</td><td>2025</td>
+      <td><a href="https://seasides.net/mastering-iot-exploitation-advanced-hardware-and-bluetooth-security">Link</a></td>
+    </tr>
+    <tr>
+      <td>5</td><td>BSides Dehradun</td><td>Dehradun, IN</td><td>BGA Dechipping Village</td><td>Village</td><td>2024</td><td></td>
+    </tr>
+    <tr>
+      <td>6</td><td>Defcon Delhi</td><td>Delhi, IN</td><td>Microchip Makeover Village</td><td>Village</td><td>2024</td><td></td>
+    </tr>
+    <tr>
+      <td>7</td><td>BSides Dehradun</td><td>Dehradun, IN</td><td>BGA Dechipping Village</td><td>Village</td><td>2024</td><td></td>
+    </tr>
+    <tr>
+      <td>8</td><td>Vulncon</td><td>Bangalore, IN</td><td>Microchip Makeover Village</td><td>Village</td><td>2024</td><td></td>
+    </tr>
+    <tr>
+      <td>9</td><td>NULL Community</td><td>Bangalore, IN</td><td>Microprobing with ICEBite</td><td>Talk</td><td>2024</td>
+      <td><a href="https://null.community/event_sessions/4278-microprobing-with-icebite">Link</a></td>
+    </tr>
+  </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- PROJECTS section (new) -->
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kekanath/kekanathan/main/pcb_example.jpg" alt="Project 1">
+          <h3>Smart Water Level Controller</h3>
+          <p>ESP32-based controller for water level monitoring and automation. (details kept in original repo)</p>
+        </div>
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kekanath/kekanathan/main/epdu.jpg" alt="Project 2">
+          <h3>EPDU</h3>
+          <p>Power distribution and fault injection project with web-based UI.</p>
+        </div>
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/kekanath/kekanathan/main/attiny.jpg" alt="Project 3">
+          <h3>ATtiny UART CTF Sketch</h3>
+          <p>Custom ATtiny85 sketch used in hardware CTFs and training.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERIES section (new) -->
+    <section id="galleries" class="section">
+      <h2>Galleries</h2>
+      <div class="grid" id="galleryGrid">
+        <!-- sample images, user can replace URLs -->
+        <div class="card" onclick="openModal(this)"><img src="https://cdn.pixabay.com/photo/2016/11/29/09/32/pcb-1867376_1280.jpg" alt="gallery1"><h3>PCB Work</h3></div>
+        <div class="card" onclick="openModal(this)"><img src="https://cdn.pixabay.com/photo/2014/04/03/00/42/soldering-309264_1280.jpg" alt="gallery2"><h3>Soldering</h3></div>
+        <div class="card" onclick="openModal(this)"><img src="https://cdn.pixabay.com/photo/2015/01/08/18/25/electronics-593655_1280.jpg" alt="gallery3"><h3>Hardware Labs</h3></div>
+      </div>
+    </section>
+
+    <!-- BLOG section (new) -->
+    <section id="blog" class="section">
+      <h2>Blog</h2>
+      <div class="grid">
+        <article class="card">
+          <img src="https://cdn.pixabay.com/photo/2015/06/24/15/45/computer-820294_1280.jpg" alt="blog1">
+          <h3>Designing Secure PCBA Badges</h3>
+          <p>Notes and lessons learned while building secure, soldered badge hardware for conferences.</p>
+        </article>
+        <article class="card">
+          <img src="https://cdn.pixabay.com/photo/2016/09/09/17/36/coding-1652346_1280.jpg" alt="blog2">
+          <h3>Embedded Testing Workflows</h3>
+          <p>How I structure automated test benches for embedded devices and firmware.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- TOOLS section (original preserved) -->
+    <section id="tools" class="section">
+      <h2>Languages and Tools</h2>
+      <table>
+    <tr><td><b>Languages</b></td><td><img src="https://skillicons.dev/icons?i=python" height="40"></td></tr>
+    <tr><td><b>Automated Test</b></td><td><img src="https://skillicons.dev/icons?i=selenium" height="40"></td></tr>
+    <tr><td><b>Version Control</b></td><td><img src="https://skillicons.dev/icons?i=git,github" height="40"></td></tr>
+    <tr><td><b>IDEs</b></td><td><img src="https://skillicons.dev/icons?i=arduino,vscode,eclipse,visualstudio" height="40"></td></tr>
+    <tr><td><b>PCBA Design</b></td><td><img src="https://icons.iconarchive.com/icons/papirus-team/papirus-apps/128/kicad-icon.png" height="40"></td></tr>
+    <tr><td><b>Operating Systems</b></td><td><img src="https://skillicons.dev/icons?i=windows,ubuntu" height="40"></td></tr>
+  </table>
+    </section>
+
+    <!-- CONNECT (original preserved) -->
+    <section id="connect" class="section">
+      <h2>Connect with me</h2>
+      <p>
+    <a href="https://x.com/Sold3rMystic" target="_blank"><img src="https://skillicons.dev/icons?i=twitter" width="60" alt="Twitter"></a>
+    <a href="https://www.linkedin.com/in/karthik-e-7915304b/" target="_blank"><img src="https://skillicons.dev/icons?i=linkedin" width="60" alt="LinkedIn"></a>
+    <a href="mailto:smilekarthikreddy@gmail.com" target="_blank"><img src="https://skillicons.dev/icons?i=gmail" width="60" alt="Gmail"></a>
+    <a href="https://github.com/kekanath" target="_blank"><img src="https://skillicons.dev/icons?i=github" width="60" alt="Github"></a>
+  </p>
+    </section>
+
+  </main>
+</div>
+
+<!-- Gallery modal -->
+<div id="modal" class="modal" role="dialog" aria-modal="true">
+  <button class="close" onclick="closeModal()">Close</button>
+  <img src="" alt="preview">
+</div>
+
+<script>
+// Navigation smooth scroll
+document.querySelectorAll('[data-nav]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth',block:'start'});})});
+
+// Video popup handlers (kept original functions)
+function showVideo(){const p=document.getElementById('popup');const v=document.getElementById('vid');p.style.display='flex';v.play();p.onclick=()=>{p.style.display='none';v.pause();v.currentTime=0;};}
+function closeVideo(){const p=document.getElementById('popup');const v=document.getElementById('vid');p.style.display='none';v.pause();v.currentTime=0;}
+
+// small video button inside activity table
+var videoBtn = document.getElementById('videoBtn');
+if(videoBtn){videoBtn.addEventListener('click', showVideo)}
+
+// Gallery modal
+function openModal(card){var img = card.querySelector('img');var modal=document.getElementById('modal');modal.style.display='flex';modal.querySelector('img').src=img.src;}
+function closeModal(){document.getElementById('modal').style.display='none';document.getElementById('modal').querySelector('img').src='';}
+
+// close modal on ESC
+document.addEventListener('keydown', function(e){if(e.key==='Escape') closeModal();});
+
+</script>
+</body>
+</html>
