@@ -256,10 +256,12 @@ fetch("https://your-backend.onrender.com/visitor", {
 
 #galleryGrid .card img {
   width: 100%;
-  height: 250px;       /* change to any height you like */
-  object-fit: cover;   /* ensures image fills area without stretching */
-  border-radius: 10px; /* optional: rounded corners */
+  height: auto;
+  max-height: 275px;   /* limits height on large screens */
+  object-fit: cover;
+  border-radius: 10px;
 }
+
 
 
 
