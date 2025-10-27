@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -122,7 +121,7 @@ fetch("https://your-backend.onrender.com/visitor", {
           <h1>Hello <span class="globe-wrap"><img class="globe" src="https://raw.githubusercontent.com/kekanath/kekanathan/main/globle_1.gif" alt="globe"></span>, I'm Karthik Ekanthan</h1>
           <p>Network & Application Pentester And PCB Design Expert</p>
           <p> Core Team Member of <a href="https://www.iotsrg.org/team" target="_blank"><u>IoTSRG</u></a></p>
-          <div style="margin-top:10px">
+          <div style="margin-top:10px;width:250px;border-radius:12px;border:3px solid var(--accent);">
             <img src="https://raw.githubusercontent.com/kekanath/kekanathan/main/karthik.jpg" alt="Karthik Ekanthan" class="profile-pic">
           </div>
         </div>
@@ -146,11 +145,12 @@ fetch("https://your-backend.onrender.com/visitor", {
     <li hidden>📫 Reach me at: <a href="mailto:smilekarthikreddy@gmail.com">smilekarthikreddy@gmail.com</a></li>
   </ul>
       </div>
-<div style="display:flex;justify-content:left;align-items:center;gap:10px;width:100%;text-align:center">
+<div style="display:flex;justify-content:left;align-items:center;gap:10px;width:100%;text-align:center;margin-top:20px">
   <img src="https://raw.githubusercontent.com/kekanath/kekanathan/main/ChatGPT%20Image%20Sep%2026%2C%202025%2C%2011_54_51%20PM.png"
        style="width:250px;border-radius:12px;border:3px solid var(--accent);">
   <img src="https://raw.githubusercontent.com/kekanath/kekanathan/main/High_five.gif"
        style="width:400px;border-radius:12px;border:3px solid var(--accent);" alt="high five">
+       
 </div>
       <!-- Original video popup preserved -->
       <div id="popup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);justify-content:center;align-items:center;z-index:1000">
@@ -164,43 +164,78 @@ fetch("https://your-backend.onrender.com/visitor", {
         <h2 id="activity">Activity</h2>
         <div class="table-responsive">
           <!-- original table preserved (kept content identical) -->
-          <table>
+ <table id="eventTable" border="1" cellpadding="8">
+  <thead>
     <tr>
-      <th>#</th><th>Conference / Event</th><th>Location</th><th>Session / Role</th><th>Format</th><th>Year</th><th>Link</th>
+      <th>#</th>
+      <th>Conference / Event</th>
+      <th>Location</th>
+      <th>Session / Role</th>
+      <th>Format</th>
+      <th>Year</th>
+      <th>Link</th>
     </tr>
-    <tr>
-      <td>1</td><td>Appsec</td><td>Bangalore, IN</td><td>Soldering Village</td><td>Village</td><td>2025</td>
-      <td><a href="https://bangalore.appsecdays.org/">Link</a> , <button id="videoBtn" class="btn" onclick="showVideo()">Video</button>
-    </tr>
-    <tr>
-      <td>2</td><td>Craccon</td><td>New Delhi, IN</td><td>Hardware CTF</td><td>CTF</td><td>2025</td>
-      <td><a href="https://www.crac-learning.com/craccon25">Link</a></td>
-    </tr>
-    <tr>
-      <td>3</td><td>Vulncon</td><td>Bangalore, IN</td><td>Solder & Spark Badge Village</td><td>Village</td><td>2025</td>
-      <td><a href="https://vulncon.in/events/vulncon2025/village/solder-and-spark-badge">Link</a></td>
-    </tr>
-    <tr>
-      <td>4</td><td>SeaSides</td><td>Goa, IN</td><td>Advanced HW + BLE Exploitation</td><td>Workshop</td><td>2025</td>
-      <td><a href="https://seasides.net/mastering-iot-exploitation-advanced-hardware-and-bluetooth-security">Link</a></td>
-    </tr>
-    <tr>
-      <td>5</td><td>BSides Dehradun</td><td>Dehradun, IN</td><td>BGA Dechipping Village</td><td>Village</td><td>2024</td><td></td>
-    </tr>
-    <tr>
-      <td>6</td><td>Defcon Delhi</td><td>Delhi, IN</td><td>Microchip Makeover Village</td><td>Village</td><td>2024</td><td></td>
-    </tr>
-    <tr>
-      <td>7</td><td>BSides Dehradun</td><td>Dehradun, IN</td><td>BGA Dechipping Village</td><td>Village</td><td>2024</td><td></td>
-    </tr>
-    <tr>
-      <td>8</td><td>Vulncon</td><td>Bangalore, IN</td><td>Microchip Makeover Village</td><td>Village</td><td>2024</td><td></td>
-    </tr>
-    <tr>
-      <td>9</td><td>NULL Community</td><td>Bangalore, IN</td><td>Microprobing with ICEBite</td><td>Talk</td><td>2024</td>
-      <td><a href="https://null.community/event_sessions/4278-microprobing-with-icebite">Link</a></td>
-    </tr>
-  </table>
+  </thead>
+  <tbody id="eventBody"></tbody>
+</table>
+
+<script>
+  // 🧩 Simple event list: [Name, Location, Role, Format, Year, Link, HasVideoButton]
+  const events = [
+    ["Appsec", "Bangalore, IN", "Soldering Village", "Village", "2025", "https://bangalore.appsecdays.org/", true],
+    ["Craccon", "New Delhi, IN", "Hardware CTF", "CTF", "2025", "https://www.crac-learning.com/craccon25", false],
+    ["Vulncon", "Bangalore, IN", "Solder & Spark Badge Village", "Village", "2025", "https://vulncon.in/events/vulncon2025/village/solder-and-spark-badge", false],
+    ["SeaSides", "Goa, IN", "Advanced HW + BLE Exploitation", "Workshop", "2025", "https://seasides.net/mastering-iot-exploitation-advanced-hardware-and-bluetooth-security", false],
+    ["BSides Dehradun", "Dehradun, IN", "BGA Dechipping Village", "Village", "2024", "", false],
+    ["Defcon Delhi", "Delhi, IN", "Microchip Makeover Village", "Village", "2024", "", false],
+    ["Vulncon", "Bangalore, IN", "Microchip Makeover Village", "Village", "2024", "", false],
+    ["NULL Community", "Bangalore, IN", "Microprobing with ICEBite", "Talk", "2024", "https://null.community/event_sessions/4278-microprobing-with-icebite", false]
+  ];
+
+  const tbody = document.getElementById("eventBody");
+
+  // 🪄 Generate table dynamically
+  events.forEach((e, i) => {
+    const [name, location, role, format, year, link, hasVideo] = e;
+    const row = document.createElement("tr");
+
+    let linkCell = "";
+    if (link) linkCell += `<a href="${link}" target="_blank">Link</a>`;
+    if (hasVideo) linkCell += `${link ? " , " : ""}<button class="btn" onclick="showVideo()">Video</button>`;
+
+    row.innerHTML = `
+      <td>${i + 1}</td>
+      <td>${name}</td>
+      <td>${location}</td>
+      <td>${role}</td>
+      <td>${format}</td>
+      <td>${year}</td>
+      <td>${linkCell}</td>
+    `;
+    tbody.appendChild(row);
+  });
+
+  // 🎥 Example video button function
+  function showVideo() {
+    alert("🎥 Video button clicked! Add your video modal or YouTube embed here.");
+  }
+</script>
+
+<style>
+  table { width: 100%; border-collapse: collapse; }
+  th { background: #333; color: white; }
+  td, th { text-align: left; }
+  .btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .btn:hover { background: #0056b3; }
+</style>
+
         </div>
       </div>
 
@@ -229,49 +264,15 @@ fetch("https://your-backend.onrender.com/visitor", {
     </section>
 
     <!-- GALLERIES section (new) -->
-<section id="galleries" class="section">
-  <h2>Galleries</h2>
-  <div class="grid" id="galleryGrid">
-    <div class="card" onclick="openModal(this)">
-      <img src="https://cdn.pixabay.com/photo/2024/07/27/09/35/processor-8925114_1280.png" alt="gallery1">
-      <h3>PCB Work</h3>
-    </div>
-    <div class="card" onclick="openModal(this)">
-      <img src="https://cdn.pixabay.com/photo/2023/04/03/19/37/soldering-7897827_1280.jpg" alt="gallery2">
-      <h3>Soldering</h3>
-    </div>
-    <div class="card" onclick="openModal(this)">
-      <img src="https://cdn.pixabay.com/photo/2014/09/10/23/47/integrated-circuit-441294_1280.jpg" alt="gallery3">
-      <h3>Hardware Labs</h3>
-    </div>
-  </div>
-</section>
-
-<style>
-#galleryGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-#galleryGrid .card img {
-  width: 100%;
-  height: auto;
-  max-height: 275px;   /* limits height on large screens */
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-
-
-
-
-
-#galleryGrid img:hover {
-  transform: scale(1.05);
-}
-</style>
-
+    <section id="galleries" class="section">
+      <h2>Galleries</h2>
+      <div class="grid" id="galleryGrid">
+        <!-- sample images, user can replace URLs -->
+        <div class="card" onclick="openModal(this)"><img src="https://cdn.pixabay.com/photo/2016/11/29/09/32/pcb-1867376_1280.jpg" alt="gallery1"><h3>PCB Work</h3></div>
+        <div class="card" onclick="openModal(this)"><img src="https://cdn.pixabay.com/photo/2014/04/03/00/42/soldering-309264_1280.jpg" alt="gallery2"><h3>Soldering</h3></div>
+        <div class="card" onclick="openModal(this)"><img src="https://cdn.pixabay.com/photo/2015/01/08/18/25/electronics-593655_1280.jpg" alt="gallery3"><h3>Hardware Labs</h3></div>
+      </div>
+    </section>
 
     <!-- BLOG section (new) -->
     <section id="blog" class="section">
